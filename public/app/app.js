@@ -2,32 +2,32 @@ angular.module('app', ['ngResource', 'ngRoute']);
 
 angular.module('app').config(function($routeProvider, $locationProvider) {
     var routeRoleChecks = {
-        admin: {auth: function(mvAuth) {
-            return mvAuth.authorizeCurrentUserForRoute('admin');
+        admin: {auth: function(cbAuth) {
+            return cbAuth.authorizeCurrentUserForRoute('admin');
         }},
-        user: {auth: function(mvAuth) {
-            return mvAuth.authorizeAuthenticatedUserForRoute();
+        user: {auth: function(cbAuth) {
+            return cbAuth.authorizeAuthenticatedUserForRoute();
         }}
     };
 
     $locationProvider.html5Mode(true);
     $routeProvider
-        .when('/', { templateUrl: '/partials/main/main', controller: 'mvMainCtrl'})
+        .when('/', { templateUrl: '/partials/main/main', controller: 'cbMainCtrl'})
         .when('/admin/users', { templateUrl: '/partials/admin/user-list',
-            controller: 'mvUserListCtrl', resolve: routeRoleChecks.admin
+            controller: 'cbUserListCtrl', resolve: routeRoleChecks.admin
          })
         .when('/signup', { templateUrl: '/partials/account/signup',
-            controller: 'mvSignupCtrl'
+            controller: 'cbSignupCtrl'
         })
         .when('/profile', { templateUrl: '/partials/account/profile',
-            controller: 'mvProfileCtrl', resolve: routeRoleChecks.user
+            controller: 'cbProfileCtrl', resolve: routeRoleChecks.user
         })
-        .when('/courses', { templateUrl: '/partials/courses/course-list',
-            controller: 'mvCourseListCtrl' +
+        .when('/recipes', { templateUrl: '/partials/recipes/recipe-list',
+            controller: 'cbRecipeListCtrl' +
             ''
         })
-        .when('/courses/:id', { templateUrl: '/partials/courses/course-details',
-            controller: 'mvCourseDetailCtrl' +
+        .when('/recipes/:id', { templateUrl: '/partials/recipes/recipe-details',
+            controller: 'cbRecipeDetailCtrl' +
             ''
         })
 });

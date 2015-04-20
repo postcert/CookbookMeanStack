@@ -11,6 +11,7 @@ var userSchema = mongoose.Schema ({
     },
     salt: {type: String, required: '{PATH} is required'},
     hashed_pwd: {type: String, required: '{PATH} is required'},
+    cookbooks: [String],
     roles: [String]
 });
 userSchema.methods = {
@@ -35,6 +36,7 @@ exports.createDefaultUsers =  function() {
                 userName: 'dan',
                 salt: salt,
                 hashed_pwd: hash,
+                cookbooks: ['Daniel'],
                 roles: ['admin']
             });
             salt = encryption.createSalt();
@@ -45,11 +47,12 @@ exports.createDefaultUsers =  function() {
                 userName: 'john',
                 salt: salt,
                 hashed_pwd: hash,
+                cookbooks: ['yummy'],
                 roles: ['']
             });
             salt = encryption.createSalt();
             hash = encryption.hashPwd(salt, 'joe');
-            User.create({firstName: 'Joe', lastName: 'Ames', userName: 'joe', salt: salt, hashed_pwd: hash});
+            User.create({firstName: 'Joe', lastName: 'Ames', userName: 'joe', salt: salt, hashed_pwd: hash, cookbooks: ['best'],});
         }
     })
 };

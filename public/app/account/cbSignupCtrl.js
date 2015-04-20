@@ -1,4 +1,4 @@
-angular.module('app').controller('mvSignupCtrl', function($scope, $location, mvUser, mvNotify, mvAuth) {
+angular.module('app').controller('cbSignupCtrl', function($scope, $location, cbUser, cbNotify, cbAuth) {
 
     $scope.signup = function() {
         var newUserData = {
@@ -8,11 +8,11 @@ angular.module('app').controller('mvSignupCtrl', function($scope, $location, mvU
             lastName: $scope.lname
         };
 
-        mvAuth.createUser(newUserData).then(function() {
-            mvNotify.notify('User account created!');
+        cbAuth.createUser(newUserData).then(function() {
+            cbNotify.notify('User account created!');
             $location.path('/');
         }, function(reason) {
-            mvNotify.error(reason);
+            cbNotify.error(reason);
         })
     }
 })
