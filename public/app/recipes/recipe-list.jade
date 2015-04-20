@@ -13,5 +13,5 @@
            tbody
               tr(ng-repeat="recipe in recipes | filter:searchText | orderBy:sortOrder")
                  td
-                    a(href="/recipes/{{recipe._id}}") {{course.title}}
-                 td {{course.published | date}}
+                    a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+                 td {{recipe.published | date}}
