@@ -1,0 +1,8 @@
+.container
+    h1 {{cookbook.title}}
+    .row
+        .col-md-6
+            .well
+                h5 Created by {{cookbook.creator}}
+                h5(ng-show="cookbook.featured") Featured Cookbook
+                h5 Published on {{recipe.published | date}}

@@ -23,12 +23,19 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
             controller: 'cbProfileCtrl', resolve: routeRoleChecks.user
         })
         .when('/recipes', { templateUrl: '/partials/recipes/recipe-list',
-            controller: 'cbRecipeListCtrl' +
-            ''
+            controller: 'cbRecipeListCtrl'
         })
         .when('/recipes/:id', { templateUrl: '/partials/recipes/recipe-details',
-            controller: 'cbRecipeDetailCtrl' +
-            ''
+            controller: 'cbRecipeDetailCtrl'
+        })
+        .when('/mycookbooks', { templateUrl: '/partials/cookbooks/cookbook-user',
+            controller: 'cbCookbookUserCtrl'
+        })
+        .when('/cookbooks', { templateUrl: '/partials/cookbooks/cookbook-list',
+            controller: 'cbCookbookListCtrl'
+        })
+        .when('/cookbooks/:id', { templateUrl: '/partials/cookbooks/cookbook-details',
+            controller: 'cbCookbookDetailCtrl'
         })
 });
 
