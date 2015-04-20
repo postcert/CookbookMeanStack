@@ -9,9 +9,11 @@
         thead
            tr
               th Title
+              th Creator
               th Publish Date
            tbody
               tr(ng-repeat="recipe in recipes | filter:searchText | orderBy:sortOrder")
                  td
                     a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+                 td {{recipe.creator}}
                  td {{recipe.published | date}}
