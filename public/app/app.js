@@ -29,7 +29,7 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
             controller: 'cbRecipeDetailCtrl'
         })
         .when('/mycookbooks', { templateUrl: '/partials/cookbooks/cookbook-user',
-            controller: 'cbCookbookUserCtrl'
+            controller: 'cbCookbookUserCtrl', resolve:routeRoleChecks.user
         })
         .when('/cookbooks', { templateUrl: '/partials/cookbooks/cookbook-list',
             controller: 'cbCookbookListCtrl'
