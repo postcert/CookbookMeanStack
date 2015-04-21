@@ -13,6 +13,7 @@
         thead
             tr
                 th Title
+                th Difficulty
                 th Creator
                 th Cookbook
                 th Publish Date
@@ -20,6 +21,7 @@
                 tr(ng-repeat="recipe in recipes | filter:searchText | orderBy:sortOrder")
                     td
                         a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+                    td {{recipe.difficulty}}
                     td {{recipe.creator}}
                     td {{recipe.cookbook}}
                     td {{recipe.published | date}}

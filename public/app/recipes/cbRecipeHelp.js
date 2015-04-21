@@ -12,17 +12,17 @@ angular.module('app').factory('cbRecipeHelp', function($q, cbRecipe) {
 
             return dfd.promise;
         },
-        deleteRecipe: function(recipeId) {
-            var deleteRec = new cbRecipe.recipes(recipeId);
+        editRecipe: function(newRecipeData) {
+            var newRecipe = new cbRecipe.recipes(newRecipeData);
             var dfd = $q.defer();
 
-            deleteRec.$remove().then(function() {
-                dfd.resolver();
+            newRecipe.$update().then(function() {
+                dfd.resolve();
             }, function(response) {
                 dfd.reject(response.data.reason);
             });
 
-            return dfd.promise();
+            return dfd.promise;
         }
     }
 });

@@ -8,6 +8,10 @@
                .col-md-10
                   input.form-control(name="title", type="title", placeholder="Title", ng-model="title", required)
             .form-group
+               label.col-md-2.control-label(for="rating") Rating
+               .col-md-10
+                  input.form-control(name="rating", type="number", ng-model="rating", required)
+            .form-group
                .col-md-10.col-md-offset-2
                   .pull-right
                      button.btn.btn-primary(ng-click="addCookbook()", ng-disabled="cookbookForm.$invalid") Submit

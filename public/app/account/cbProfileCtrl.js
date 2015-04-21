@@ -8,7 +8,7 @@ angular.module('app').controller('cbProfileCtrl', function($scope, cbAuth, cbIde
             userName: $scope.email,
             firstName: $scope.fname,
             lastName: $scope.lname
-        }
+        };
         if ($scope.password && $scope.password.length > 0) {
             newUserData.password = $scope.password;
         }

@@ -1,0 +1,24 @@
+.container
+    h1 {{user.firstName}} {{user.lastName}} Email: {{user.userName}}
+    h5 User Recipes
+    table.table.table-hover.table-striped.table-condensed
+        thead
+            tr
+                th Title
+                th Publish Date
+            tbody
+                tr(ng-repeat="recipe in recipes | filter:{creator:user.userName}")
+                    td
+                        a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+                    td {{recipe.published | date}}
+    h5 User CookBooks
+        table.table.table-hover.table-striped.table-condensed
+            thead
+                tr
+                    th Title
+                    th Publish Date
+                tbody
+                    tr(ng-repeat="cookbook in cookbooks | filter:{creator:user.userName}")
+                        td
+                            a(href="/cookbooks/{{cookbook._id}}") {{cookbook.title}}
+                        td {{cookbook.published | date}}

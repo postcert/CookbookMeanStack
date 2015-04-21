@@ -7,10 +7,6 @@ angular.module('app').factory('cbRecipe', function($resource) {
         }),
         recipesuser: $resource('/api/user/:user_id/recipes', {user_id: "@user_id"}, {
             get: {method: 'GET', isArray: true}
-        }),
-        removerecipe: $resource('/api/remove/:id/recipe', {_id: "@id"}, {
-            remove: {method: 'REMOVE', isArray: false},
-            delete: {method: 'DELETE', isArray: false}
         })
     }
 });

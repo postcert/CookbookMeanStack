@@ -16,6 +16,9 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
         .when('/admin/users', { templateUrl: '/partials/admin/user-list',
             controller: 'cbUserListCtrl', resolve:routeRoleChecks.admin
          })
+        .when('/users/:id', { templateUrl: '/partials/admin/user-page',
+            controller: 'cbUserPageCtrl', resolve:routeRoleChecks.admin
+        })
         .when('/signup', { templateUrl: '/partials/account/signup',
             controller: 'cbSignupCtrl'
         })

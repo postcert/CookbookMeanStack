@@ -10,6 +10,7 @@ module.exports = function(app) {
     app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
     app.post('/api/users', users.createUser);
     app.put('/api/users', users.updateUser);
+    app.get('/api/users/:id', users.getUserById);
 
     app.get('/api/recipes', recipes.getRecipes);
     app.post('/api/recipes', recipes.createRecipe);

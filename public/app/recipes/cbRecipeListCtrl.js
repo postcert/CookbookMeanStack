@@ -5,7 +5,8 @@ angular.module('app').controller('cbRecipeListCtrl', function($scope, $location,
     $scope.sortOptions = [{value:"title", text:"Sort by Title"},
         {value:"published", text:"Sort by Publish Date"},
         {value:"creator", text:"Sort by Creator"},
-        {value:"cookbook", text:"Sort by Cookbook"}];
+        {value:"cookbook", text:"Sort by Cookbook"},
+        {value:"difficulty", text:"Sort by Difficulty"}];
     $scope.sortOrder = $scope.sortOptions[0].value;
 
     $scope.newRecipe = function() {

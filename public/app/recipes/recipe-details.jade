@@ -10,6 +10,7 @@
             h3 Cook Time
             h4 Hour: {{recipe.cooktimeHour}}
             h4 Minute: {{recipe.cooktimeMinute}}
+            h4 Difficulty: {{recipe.difficulty}}
          .col-md-3.margin-bottom-med(ng-show="identity.isAuthenticated(recipe.creator)")
             button.btn.btn-primary(ng-click="deleteRecipe()") Delete Recipe
          .col-md-3.margin-bottom-med(ng-show="identity.isAuthenticated(recipe.creator)")
@@ -18,8 +19,8 @@
          .panel.panel-primary
             .panel-heading Ingredients
             .panel-body
-               div(ng-repeat="tag in recipe.ingredients") {{tag}}
+               div(ng-repeat="tag in recipe.ingredients track by $index") {{tag}}
          .panel.panel-primary
             .panel-heading Directions
             .panel-body
-               div(ng-repeat="tag in recipe.directions") {{tag}}
+               div(ng-repeat="tag in recipe.directions track by $index") {{tag}}

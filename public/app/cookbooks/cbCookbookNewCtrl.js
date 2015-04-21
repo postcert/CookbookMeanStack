@@ -5,6 +5,7 @@ angular.module('app').controller('cbCookbookNewCtrl', function($scope, $location
             title: $scope.title,
             creator: cbIdentity.currentUser.userName,
             featured: true,
+            rating: $scope.rating,
             published: new Date()
         };
 

@@ -14,6 +14,7 @@
             th Creator
             th Cookbook
             th Publish Date
+            th Difficulty
          tbody
             tr(ng-repeat="recipe in recipes | orderBy:sortOrder")
                td
@@ -21,3 +22,4 @@
                td {{recipe.creator}}
                td {{recipe.cookbook}}
                td {{recipe.published | date}}
+               td {{recipe.difficulty}}

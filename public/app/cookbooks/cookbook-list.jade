@@ -13,11 +13,13 @@
       thead
          tr
             th Title
+            th Rating
             th Creator
             th Publish Date
          tbody
             tr(ng-repeat="cookbook in cookbooks | filter:searchText | orderBy:sortOrder")
                td
                   a(href="/cookbooks/{{cookbook._id}}") {{cookbook.title}}
+               td {{cookbook.rating}}
                td {{cookbook.creator}}
                td {{cookbook.published | date}}

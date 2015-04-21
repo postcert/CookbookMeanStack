@@ -6,7 +6,11 @@ exports.getUsers = function(req, res) {
         res.send(collection);
     })
 };
-
+exports.getUserById = function(req, res) {
+    User.findOne({_id:req.params.id}).exec(function(err, user) {
+        res.send(user);
+    })
+};
 exports.createUser = function(req, res, next) {
     var userData = req.body;
     userData.username = userData.username.toUpperCase();

@@ -9,6 +9,7 @@ angular.module('app').controller('cbRecipeNewCtrl', function($scope, $location, 
             cookbook: $scope.cookbook,
             cooktimeHour: $scope.cooktimeHour,
             cooktimeMinute: $scope.cooktimeMinute,
+            difficulty: $scope.difficulty,
             directions: [$scope.directions0, $scope.directions1, $scope.directions2, $scope.directions3, $scope.directions4],
             ingredients: [$scope.ingredients0, $scope.ingredients1, $scope.ingredients2, $scope.ingredients3, $scope.ingredients4]
         };

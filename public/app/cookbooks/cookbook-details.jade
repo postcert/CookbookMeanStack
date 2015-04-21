@@ -3,6 +3,7 @@
     .row
         .col-md-6
             .well
+                h5 Rating {{thisCookbook.rating}}
                 h5 Created by {{thisCookbook.creator}}
                 h5(ng-show="thisCookbook.featured") Featured Cookbook
                 h5 Published on {{thisCookbook.published | date}}
@@ -14,4 +15,5 @@
             .panel.panel-primary
                 .panel-heading Recipes
                 .panel-body
-                    div(ng-repeat="tag in recipes | filter:{cookbook:thisCookbook.title}") {{tag.title}}
+                    div(ng-repeat="tag in recipes | filter:{cookbook:thisCookbook.title}")
+                        a(href="/recipes/{{tag._id}}") {{tag.title}}
