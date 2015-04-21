@@ -31,6 +31,9 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
         .when('/mycookbooks', { templateUrl: '/partials/cookbooks/cookbook-user',
             controller: 'cbCookbookUserCtrl', resolve:routeRoleChecks.user
         })
+        .when('/myrecipes', { templateUrl: '/partials/recipes/recipe-user',
+            controller: 'cbRecipeUserCtrl', resolve:routeRoleChecks.user
+        })
         .when('/cookbooks', { templateUrl: '/partials/cookbooks/cookbook-list',
             controller: 'cbCookbookListCtrl'
         })

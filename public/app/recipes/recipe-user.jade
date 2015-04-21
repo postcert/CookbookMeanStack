@@ -2,7 +2,7 @@
    .pull-left
       form.form-inline
          .form-group.margin-right-med
-            button.btn.btn-primary(ng-click="newCookbook()") New Cookbook
+            button.btn.btn-primary(ng-click="newRecipe()") New Recipe
    .pull-right
       form.form-inline
          .form-group.margin-left-med
@@ -12,10 +12,12 @@
          tr
             th Title
             th Creator
+            th Cookbook
             th Publish Date
          tbody
-            tr(ng-repeat="cookbook in cookbooks | filter: {creator : userName} | orderBy:sortOrder")
+            tr(ng-repeat="recipe in recipes | filter: {creator : userName} | orderBy:sortOrder")
                td
-                  a(href="/cookbooks/{{cookbook._id}}") {{cookbook.title}}
-               td {{cookbook.creator}}
-               td {{cookbook.published | date}}
+                  a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+               td {{recipe.creator}}
+               td {{recipe.cookbook}}
+               td {{recipe.published | date}}

@@ -1,0 +1,15 @@
+.container
+   .well
+      form.form-horizontal(name="cookbookForm")
+         fieldset
+            legend New Cookbook Information
+            .form-group
+               label.col-md-2.control-label(for="title") Title
+               .col-md-10
+                  input.form-control(name="title", type="title", placeholder="Title", ng-model="title", required)
+            .form-group
+               .col-md-10.col-md-offset-2
+                  .pull-right
+                     button.btn.btn-primary(ng-click="signup()", ng-disabled="signupForm.$invalid") Submit
+                     | &nbsp;
+                     a.btn.btn-default(href="/") Cancel

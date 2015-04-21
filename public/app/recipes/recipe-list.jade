@@ -7,15 +7,15 @@
                 select.form-control(ng-model="sortOrder", ng-options="item.value as item.text for item in sortOptions")
     table.table.table-hover.table-striped.table-condensed
         thead
-           tr
-              th Title
-              th Creator
-              th Cookbook
-              th Publish Date
-           tbody
-              tr(ng-repeat="recipe in recipes | filter:searchText | orderBy:sortOrder")
-                 td
-                    a(href="/recipes/{{recipe._id}}") {{recipe.title}}
-                 td {{recipe.creator}}
-                 td {{recipe.cookbook}}
-                 td {{recipe.published | date}}
+            tr
+                th Title
+                th Creator
+                th Cookbook
+                th Publish Date
+            tbody
+                tr(ng-repeat="recipe in recipes | filter:searchText | orderBy:sortOrder")
+                    td
+                        a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+                    td {{recipe.creator}}
+                    td {{recipe.cookbook}}
+                    td {{recipe.published | date}}
