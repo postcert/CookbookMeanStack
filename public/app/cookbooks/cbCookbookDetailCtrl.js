@@ -4,11 +4,11 @@ angular.module('app').controller('cbCookbookDetailCtrl', function($scope, $locat
     $scope.recipes = cbRecipe.recipes.query();
 
     $scope.deleteCookbook = function() {
-        cbCookbook.cookbooks.remove({_id:$routeParams.id}, {},function() {
-            cbNotify.notify('Cookbook Deleted');
-            $location.path('/');
-        }, function(reason) {
+        cbCookbook.cookbooks.remove({_id:$routeParams.id}, {},{}, function(reason) {
             cbNotify.error(reason);
-        })
+        });
+
+        cbNotify.notify('Cookbook Deleted');
+        $location.path('/');
     };
 });

@@ -1,6 +1,6 @@
-angular.module('app').controller('cbCookbookListCtrl', function($scope, $location, cbCookbook, cbIdentity) {
+angular.module('app').controller('cbCookbookListCtrl', function($scope, $location, cbCookbook, cbIdentity, cbNotify) {
     $scope.identity = cbIdentity;
-    $scope.cookbooks = cbCookbook.cookbooks.query();
+    $scope.cookbook = cbCookbook.cookbooks.query();
 
     $scope.sortOptions = [{value:"title", text:"Sort by Title"},
         {value:"published", text:"Sort by Publish Date"},
@@ -11,5 +11,14 @@ angular.module('app').controller('cbCookbookListCtrl', function($scope, $locatio
 
     $scope.newCookbook = function() {
         $location.path('/newcookbook');
+    };
+
+    $scope.deleteCookbook = function(cookbookId) {
+        cbCookbook.cookbooks.remove({_id:cookbookId}, {},{}, function(reason) {
+            cbNotify.error(reason);
+        });
+
+        cbNotify.notify('Cookbook Deleted');
+        $location.path('/');
     };
 });

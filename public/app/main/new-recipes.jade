@@ -2,6 +2,9 @@
    .panel-heading.text-center New Recipes
    .panel-body
       .row(ng-repeat="recipe in recipes | orderBy:'published':true | limitTo:10")
-          .col-md-3 {{recipe.published | date:'MMM d'}}
-          .col-md-9
-              a(href="/recipes/{{course._id}}") {{recipe.title}}
+          .col-md-3
+              a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+          .col-md-3
+              td {{recipe.creator}}
+          .col-md-3
+              td {{recipe.published | date}}

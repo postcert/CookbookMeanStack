@@ -3,12 +3,12 @@ angular.module('app').controller('cbRecipeDetailCtrl', function($scope, $locatio
     $scope.identity = cbIdentity;
 
     $scope.deleteRecipe = function() {
-        cbRecipe.recipes.remove({_id:$routeParams.id}, {},function() {
-            cbNotify.notify('Recipe Deleted');
-            $location.path('/');
-        }, function(reason) {
+        cbRecipe.recipes.remove({_id:$routeParams.id}, {},{}, function(reason) {
             cbNotify.error(reason);
-        })
+        });
+
+        cbNotify.notify('Recipe Deleted');
+        $location.path('/');
     };
     $scope.editRecipe = function() {
         $location.path('/editrecipe/' + $routeParams.id);

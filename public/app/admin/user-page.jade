@@ -1,24 +1,53 @@
 .container
-    h1 {{user.firstName}} {{user.lastName}} Email: {{user.userName}}
+    h1 {{user.firstName}} {{user.lastName}}
+    h3 Email: {{user.userName}}
     h5 User Recipes
+    .pull-right
+        form.form-inline
+            .form-group
+                input.form-control(ng-model="recipeText", placeholder="Filter")
+            .form-group.margin-left-med
+                select.form-control(ng-model="recipeOrder", ng-options="item.value as item.text for item in sortOptions")
     table.table.table-hover.table-striped.table-condensed
         thead
             tr
                 th Title
+                th Difficulty
+                th Creator
+                th Cookbook
                 th Publish Date
+                th Delete
             tbody
-                tr(ng-repeat="recipe in recipes | filter:{creator:user.userName}")
+                tr(ng-repeat="recipe in recipes | filter:{creator:user.userName} | orderBy:recipeOrder")
                     td
                         a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+                    td {{recipe.difficulty}}
+                    td {{recipe.creator}}
+                    td {{recipe.cookbook}}
                     td {{recipe.published | date}}
+                    td
+                        button.btn.btn-primary(ng-click="deleteRecipe(recipe._id)") Delete Recipe
     h5 User CookBooks
-        table.table.table-hover.table-striped.table-condensed
-            thead
-                tr
-                    th Title
-                    th Publish Date
-                tbody
-                    tr(ng-repeat="cookbook in cookbooks | filter:{creator:user.userName}")
-                        td
-                            a(href="/cookbooks/{{cookbook._id}}") {{cookbook.title}}
-                        td {{cookbook.published | date}}
+    .pull-right
+        form.form-inline
+            .form-group
+                input.form-control(ng-model="cookbookText", placeholder="Filter")
+            .form-group.margin-left-med
+                select.form-control(ng-model="cookbookOrder", ng-options="item.value as item.text for item in sortOptions")
+    table.table.table-hover.table-striped.table-condensed
+        thead
+            tr
+                th Title
+                th Rating
+                th Creator
+                th Publish Date
+                th Delete
+            tbody
+                tr(ng-repeat="cookbook in cookbooks | filter:{creator:user.userName} | orderBy:cookbookOrder")
+                    td
+                        a(href="/cookbooks/{{cookbook._id}}") {{cookbook.title}}
+                    td {{cookbook.published | date}}
+                    td {{cookbook.creator}}
+                    td {{cookbook.published | date}}
+                    td
+                        button.btn.btn-primary(ng-click="deleteCookbook(cookbook._id)") Delete Cookbook

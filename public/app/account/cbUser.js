@@ -1,7 +1,8 @@
 angular.module('app').factory('cbUser', function($resource) {
     var UserResource = $resource('/api/users/:_id', {_id: "@id"}, {
         update: {method: 'PUT', isArray:false},
-        get: {method: 'GET', isArray:false}
+        get: {method: 'GET', isArray:false},
+        remove: {method: 'DELETE', isArray: false}
     });
 
     UserResource.prototype.isAdmin = function() {

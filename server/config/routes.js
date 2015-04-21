@@ -11,6 +11,7 @@ module.exports = function(app) {
     app.post('/api/users', users.createUser);
     app.put('/api/users', users.updateUser);
     app.get('/api/users/:id', users.getUserById);
+    app.delete('/api/users/:id', auth.requiresRole('admin'), users.deleteUser);
 
     app.get('/api/recipes', recipes.getRecipes);
     app.post('/api/recipes', recipes.createRecipe);

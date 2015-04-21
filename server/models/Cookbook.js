@@ -16,7 +16,12 @@ var Cookbook = mongoose.model('Cookbook', cookbookSchema);
 function createDefaultCookbooks() {
     Cookbook.find({}).exec(function(err, collection) {
         if(collection.length === 0) {
-            Cookbook.create({title:'Favorite Recipes', creator:'dan', featured: true, published: new Date('4/21/2015')})
+            Cookbook.create({title:'Favorites', creator:'dan', featured: true, rating: 4, published: new Date('4/21/2015')});
+            Cookbook.create({title:'Tasty', creator:'dan', featured: false, rating: 5, published: new Date('1/1/2111')});
+            Cookbook.create({title:'Yummy', creator:'john', featured: true, rating: 4, published: new Date('2/21/2065')});
+            Cookbook.create({title:'Food', creator:'john', featured: false, rating: 1, published: new Date('1/1/2111')});
+            Cookbook.create({title:'Best', creator:'john', featured: true, rating: 3, published: new Date('7/21/1915')});
+            Cookbook.create({title:'Average', creator:'john', featured: false, rating: 2, published: new Date('4/1/1911')});
         }
     })
 }

@@ -16,6 +16,8 @@
             th Rating
             th Creator
             th Publish Date
+            th(ng-show="identity.currentUser.isAdmin()") Delete
+
          tbody
             tr(ng-repeat="cookbook in cookbooks | filter:searchText | orderBy:sortOrder")
                td
@@ -23,3 +25,5 @@
                td {{cookbook.rating}}
                td {{cookbook.creator}}
                td {{cookbook.published | date}}
+               td(ng-show="identity.currentUser.isAdmin()")
+                  button.btn.btn-primary(ng-click="deleteCookbook(cookbook._id)") Delete Cookbook

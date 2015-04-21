@@ -17,6 +17,7 @@
                 th Creator
                 th Cookbook
                 th Publish Date
+                th(ng-show="identity.currentUser.isAdmin()") Delete
             tbody
                 tr(ng-repeat="recipe in recipes | filter:searchText | orderBy:sortOrder")
                     td
@@ -25,3 +26,5 @@
                     td {{recipe.creator}}
                     td {{recipe.cookbook}}
                     td {{recipe.published | date}}
+                    td(ng-show="identity.currentUser.isAdmin()")
+                        button.btn.btn-primary(ng-click="deleteRecipe(recipe._id)") Delete Recipe

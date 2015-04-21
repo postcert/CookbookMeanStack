@@ -2,5 +2,9 @@
    .panel-heading.text-center Featured Recipes
    .panel-body
        .row(ng-repeat="recipe in recipes | filter:{featured:true}")
-           .col-md-12
+           .col-md-3
                a(href="/recipes/{{recipe._id}}") {{recipe.title}}
+           .col-md-3
+               td {{recipe.creator}}
+           .col-md-3
+               td {{recipe.published | date}}

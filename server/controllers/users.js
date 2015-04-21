@@ -58,3 +58,9 @@ exports.updateUser = function(req, res) {
         res.send(req.user);
     })
 };
+
+exports.deleteUser = function(req, res) {
+    User.findOne({_id:req.params.id}).remove().exec(function(err, user) {
+        res.send(user);
+    })
+}

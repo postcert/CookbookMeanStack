@@ -3,3 +3,5 @@
       tr(ng-repeat="user in users")
          td
             a(href="/users/{{user._id}}") {{user.firstName + ' ' + user.lastName}}
+         td
+            button.btn.btn-primary(ng-click="deleteUser(user._id)") Delete User

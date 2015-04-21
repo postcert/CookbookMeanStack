@@ -1,4 +1,4 @@
-angular.module('app').controller('cbRecipeListCtrl', function($scope, $location, cbRecipe, cbIdentity) {
+angular.module('app').controller('cbRecipeListCtrl', function($scope, $location, cbRecipe, cbIdentity, cbNotify) {
     $scope.identity = cbIdentity;
     $scope.recipes = cbRecipe.recipes.query();
 
@@ -11,5 +11,14 @@ angular.module('app').controller('cbRecipeListCtrl', function($scope, $location,
 
     $scope.newRecipe = function() {
         $location.path('/newrecipe');
+    };
+
+    $scope.deleteRecipe = function(recipeId) {
+        cbRecipe.recipes.remove({_id:recipeId}, {},{}, function(reason) {
+            cbNotify.error(reason);
+        });
+
+        cbNotify.notify('Recipe Deleted');
+        $location.path('/');
     };
 });

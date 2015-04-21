@@ -36,7 +36,7 @@ exports.createDefaultUsers =  function() {
                 userName: 'dan',
                 salt: salt,
                 hashed_pwd: hash,
-                cookbooks: ['Daniel'],
+                cookbooks: ['Tasty', 'Favorites'],
                 roles: ['admin']
             });
             salt = encryption.createSalt();
@@ -47,12 +47,12 @@ exports.createDefaultUsers =  function() {
                 userName: 'john',
                 salt: salt,
                 hashed_pwd: hash,
-                cookbooks: ['yummy'],
+                cookbooks: ['Yummy', 'Food'],
                 roles: ['']
             });
             salt = encryption.createSalt();
             hash = encryption.hashPwd(salt, 'joe');
-            User.create({firstName: 'Joe', lastName: 'Ames', userName: 'joe', salt: salt, hashed_pwd: hash, cookbooks: ['best']});
+            User.create({firstName: 'Joe', lastName: 'Ames', userName: 'joe', salt: salt, hashed_pwd: hash, cookbooks: ['Best', 'Average']});
         }
     })
 };
