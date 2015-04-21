@@ -12,12 +12,12 @@ module.exports = function(app) {
     app.put('/api/users', users.updateUser);
 
     app.get('/api/recipes', recipes.getRecipes);
-    app.get('/api/recipesuser/:user_id', recipes.getRecipesByUser);
     app.get('/api/recipes/:id', recipes.getRecipeById);
+    app.get('/api/user/:user_id/recipes', recipes.getRecipesByUser);
 
     app.get('/api/cookbooks', cookbooks.getCookbooks);
     app.get('/api/cookbooks/:id', cookbooks.getCookbookById);
-    app.get('/api/cookbooksuser/:user_id', cookbooks.getCookbookByUser);
+    app.get('/api/user/:user_id/cookbooks', cookbooks.getCookbookByUser);
 
     app.get('/partials/*', function(req, res) {
         res.render('../../public/app/' + req.params[0]);

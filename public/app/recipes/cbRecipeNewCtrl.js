@@ -1,4 +1,4 @@
-angular.module('app').controller('cbRecipeNewCtrl', function($scope, cbAuth, cbIdentity, cbNotify) {
+angular.module('app').controller('cbRecipeNewCtrl', function($scope, cbAuth, cbIdentity, cbNotify, cbRecipe, cbCookbook) {
     $scope.cookbookOptions = cbCookbook.getCookbookByUser(cbIdentity.currentUser.userName);
 
     $scope.addRecipe = function() {
