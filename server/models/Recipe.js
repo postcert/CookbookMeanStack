@@ -24,8 +24,8 @@ var Recipe = mongoose.model('Recipe', recipeSchema);
 function createDefaultRecipes() {
     Recipe.find({}).exec(function(err, collection) {
         if(collection.length === 0) {
-            Recipe.create({title: 'Chicken', creator: 'dan', featured: true, published: new Date('10/5/2013'), cookbook: 'Daniel', cooktimeHour: 1, cooktimeMinute: 0, directions:['Place Chicken on Flame', 'Eat the Chicken'], ingredients: ['Chicken', 'Fire']});
-            Recipe.create({title: 'Beef', creator: 'dan', featured: true, published: new Date('10/5/2013'), cookbook: 'Daniel', cooktimeHour: 1, cooktimeMinute: 0, directions:['Place Chicken on Flame', 'Eat the Chicken'], ingredients: ['Chicken', 'Fire']});
+            Recipe.create({title: 'Chicken', creator: 'dan', featured: true, published: new Date('10/5/2013'), cookbook: 'Daniel', cooktimeHour: 1, cooktimeMinute: 0, difficulty: 0, directions:['Place Chicken on Flame', 'Eat the Chicken'], ingredients: ['Chicken', 'Fire']});
+            Recipe.create({title: 'Beef', creator: 'dan', featured: true, published: new Date('10/5/2013'), cookbook: 'Daniel', cooktimeHour: 1, cooktimeMinute: 0, difficulty: 3, directions:['Place Chicken on Flame', 'Eat the Chicken'], ingredients: ['Chicken', 'Fire']});
         }
     })
 }

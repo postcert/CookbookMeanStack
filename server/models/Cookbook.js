@@ -1,9 +1,13 @@
 var mongoose = require('mongoose');
 
+var minRating = [0, 'The value of field `{PATH}` ({VALUE}) lower than the limit ({MIN}).'];
+var maxRating = [5, 'The value of field `{PATH}` ({VALUE}) exceeds the limit ({MAX}).'];
+
 var cookbookSchema = mongoose.Schema({
     title: {type: String, required:'{PATH} is required', unique: true},
     creator: {type: String, required:'{PATH} is required'},
     featured: {type: Boolean, required:'{PATH} is required'},
+    rating: {type: Number, required:'{PATH} is required', max:maxRating, min:minRating}
     published: {type: Date, required:'{PATH} is required'}
 });
 
