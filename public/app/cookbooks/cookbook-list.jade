@@ -1,4 +1,8 @@
 .container.top-padding-med
+   .pull-left
+      form.form-inline(ng-show="identity.isAuthenticated()")
+         .form-group.margin-right-med
+            button.btn.btn-primary(ng-click="newCookbook()") New Cookbook
    .pull-right
       form.form-inline
          .form-group

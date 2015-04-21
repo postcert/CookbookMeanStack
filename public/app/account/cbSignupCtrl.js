@@ -15,4 +15,4 @@ angular.module('app').controller('cbSignupCtrl', function($scope, $location, cbU
             cbNotify.error(reason);
         })
     }
-})
+});

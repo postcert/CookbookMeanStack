@@ -14,19 +14,25 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', { templateUrl: '/partials/main/main', controller: 'cbMainCtrl'})
         .when('/admin/users', { templateUrl: '/partials/admin/user-list',
-            controller: 'cbUserListCtrl', resolve: routeRoleChecks.admin
+            controller: 'cbUserListCtrl', resolve:routeRoleChecks.admin
          })
         .when('/signup', { templateUrl: '/partials/account/signup',
             controller: 'cbSignupCtrl'
         })
         .when('/profile', { templateUrl: '/partials/account/profile',
-            controller: 'cbProfileCtrl', resolve: routeRoleChecks.user
+            controller: 'cbProfileCtrl', resolve:routeRoleChecks.user
         })
         .when('/recipes', { templateUrl: '/partials/recipes/recipe-list',
             controller: 'cbRecipeListCtrl'
         })
         .when('/recipes/:id', { templateUrl: '/partials/recipes/recipe-details',
             controller: 'cbRecipeDetailCtrl'
+        })
+        .when('/newrecipe', { templateUrl: '/partials/recipes/recipe-new',
+            controller: 'cbRecipeNewCtrl', resolve:routeRoleChecks.user
+        })
+        .when('/editrecipe/:id', { templateUrl: '/partials/recipes/recipe-edit',
+            controller: 'cbRecipeEditCtrl', resolve:routeRoleChecks.user
         })
         .when('/mycookbooks', { templateUrl: '/partials/cookbooks/cookbook-user',
             controller: 'cbCookbookUserCtrl', resolve:routeRoleChecks.user
@@ -39,6 +45,9 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
         })
         .when('/cookbooks/:id', { templateUrl: '/partials/cookbooks/cookbook-details',
             controller: 'cbCookbookDetailCtrl'
+        })
+        .when('/newcookbook', { templateUrl: '/partials/cookbooks/cookbook-new',
+            controller: 'cbCookbookNewCtrl', resolve:routeRoleChecks.user
         })
 });
 

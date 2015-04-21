@@ -15,3 +15,21 @@ exports.getCookbookByUser = function(req, res) {
         res.send(cookbooks);
     });
 };
+exports.createCookbook = function(req, res) {
+    var cookbookData = req.body;
+
+    Cookbook.create(cookbookData, function(err) {
+        if(err) {
+            if(err.toString().indexOf('E11000') > -1) {
+                err = new Error('Duplicate Title');
+            }
+            res.status(400);
+            return res.send({reason:err.toString()});
+        }
+    })
+};
+exports.removeCookbook = function(req, res) {
+    Cookbook.findOne({_id:req.params.id}).remove().exec(function(err, cookbook) {
+        res.send(cookbook);
+    })
+};

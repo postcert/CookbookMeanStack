@@ -6,8 +6,12 @@ angular.module('app').factory('cbIdentity', function($window, cbUser) {
     }
     return {
         currentUser: currentUser,
-        isAuthenticated: function() {
-            return !!this.currentUser;
+        isAuthenticated: function(name) {
+            if (name === undefined || this.currentUser === undefined) {
+                return !!this.currentUser;
+            } else {
+                return this.currentUser.userName === name;
+            }
         },
         isAuthorized: function(role) {
             return !!this.currentUser && this.currentUser.roles.indexOf(role) > -1;

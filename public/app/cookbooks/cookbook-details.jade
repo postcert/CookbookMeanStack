@@ -1,8 +1,17 @@
 .container
-    h1 {{cookbook.title}}
+    h1 {{thisCookbook.title}}
     .row
         .col-md-6
             .well
-                h5 Created by {{cookbook.creator}}
-                h5(ng-show="cookbook.featured") Featured Cookbook
-                h5 Published on {{cookbook.published | date}}
+                h5 Created by {{thisCookbook.creator}}
+                h5(ng-show="thisCookbook.featured") Featured Cookbook
+                h5 Published on {{thisCookbook.published | date}}
+            .col-md-3.margin-bottom-med(ng-show="identity.isAuthenticated(thisCookbook.creator)")
+                button.btn.btn-primary(ng-click="deleteCookbook()") Delete Cookbook
+            .col-md-3.margin-bottom-med(ng-show="identity.isAuthenticated(thisCookbook.creator)")
+                button.btn.btn-primary(ng-click="editCookbook()") Edit Cookbook
+        .col-md-6
+            .panel.panel-primary
+                .panel-heading Recipes
+                .panel-body
+                    div(ng-repeat="tag in recipes | filter:{cookbook:thisCookbook.title}") {{tag.title}}

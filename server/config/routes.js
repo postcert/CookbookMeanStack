@@ -12,10 +12,14 @@ module.exports = function(app) {
     app.put('/api/users', users.updateUser);
 
     app.get('/api/recipes', recipes.getRecipes);
+    app.post('/api/recipes', recipes.createRecipe);
+    app.delete('/api/recipes/:id', recipes.removeRecipe);
     app.get('/api/recipes/:id', recipes.getRecipeById);
     app.get('/api/user/:user_id/recipes', recipes.getRecipesByUser);
 
     app.get('/api/cookbooks', cookbooks.getCookbooks);
+    app.post('/api/cookbooks', cookbooks.createCookbook);
+    app.delete('/api/cookbooks/:id', cookbooks.removeCookbook);
     app.get('/api/cookbooks/:id', cookbooks.getCookbookById);
     app.get('/api/user/:user_id/cookbooks', cookbooks.getCookbookByUser);
 

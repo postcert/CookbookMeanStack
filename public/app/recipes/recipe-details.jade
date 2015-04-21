@@ -10,7 +10,10 @@
             h3 Cook Time
             h4 Hour: {{recipe.cooktimeHour}}
             h4 Minute: {{recipe.cooktimeMinute}}
-
+         .col-md-3.margin-bottom-med(ng-show="identity.isAuthenticated(recipe.creator)")
+            button.btn.btn-primary(ng-click="deleteRecipe()") Delete Recipe
+         .col-md-3.margin-bottom-med(ng-show="identity.isAuthenticated(recipe.creator)")
+            button.btn.btn-primary(ng-click="editRecipe()") Edit Recipe
       .col-md-6
          .panel.panel-primary
             .panel-heading Ingredients

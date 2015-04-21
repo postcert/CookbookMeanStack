@@ -1,0 +1,51 @@
+.container
+   .well
+      form.form-horizontal(name="recipeForm")
+         fieldset
+            legend New Recipe
+            .form-group
+               label.col-md-2.control-label(for="title") Title
+               .col-md-10
+                  input.form-control(name="title", type="text", placeholder="Recipe Name", ng-model="title", required)
+            .form-group
+               label.col-md-2.control-label(for="cookbook") Cookbook
+               .col-md-10
+                  input.form-control(name="cookbook", type="text", placeholder="CookBook", ng-model="cookbook", required)
+            .form-group
+               label.col-md-2.control-label(for="cooktimeHour") Cooktime Hour
+               .col-md-10
+                  input.form-control(name="cooktimeHour", type="number", ng-model="cooktimeHour", required)
+            .form-group
+               label.col-md-2.control-label(for="cooktimeMinute") Cooktime Minute
+               .col-md-10
+                  input.form-control(name="cooktimeMinute", type="number", ng-model="cooktimeMinute", required)
+            .form-group
+               label.col-md-2.control-label(for="directions") Directions
+               .col-md-10
+                  input.form-control(name="directions0", type="text", placeholder="Direction", ng-model="directions0", required)
+               .col-md-10.col-md-offset-2
+                  input.form-control(name="directions1", type="text", placeholder="Additional", ng-model="directions1")
+               .col-md-10.col-md-offset-2
+                  input.form-control(name="directions2", type="text", placeholder="Additional", ng-model="directions2")
+               .col-md-10.col-md-offset-2
+                  input.form-control(name="directions3", type="text", placeholder="Additional", ng-model="directions3")
+               .col-md-10.col-md-offset-2
+                  input.form-control(name="directions4", type="text", placeholder="Additional", ng-model="directions4")
+            .form-group
+               label.col-md-2.control-label(for="ingredient") Ingredients
+               .col-md-10
+                  input.form-control(name="ingredients0", type="text",  placeholder="Ingredient", ng-model="ingredients0", required)
+               .col-md-10.col-md-offset-2
+                  input.form-control(name="ingredients1", type="text",  placeholder="Additional", ng-model="ingredients1")
+               .col-md-10.col-md-offset-2
+                  input.form-control(name="ingredients2", type="text",  placeholder="Additional", ng-model="ingredients2")
+               .col-md-10.col-md-offset-2
+                  input.form-control(name="ingredients3", type="text",  placeholder="Additional", ng-model="ingredients3")
+               .col-md-10.col-md-offset-2
+                  input.form-control(name="ingredients4", type="text",  placeholder="Additional", ng-model="ingredients4")
+            .form-group
+               .col-md-10.col-md-offset-2
+                  .pull-right
+                     button.btn.btn-primary(ng-click="editRecipe()", ng-disabled="recipeForm.$invalid") Submit
+                     | &nbsp;
+                     a.btn.btn-default(href="/") Cancel

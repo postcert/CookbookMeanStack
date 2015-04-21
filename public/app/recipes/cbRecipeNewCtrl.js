@@ -1,5 +1,4 @@
-angular.module('app').controller('cbRecipeNewCtrl', function($scope, cbAuth, cbIdentity, cbNotify, cbRecipe, cbCookbook) {
-    $scope.cookbookOptions = cbCookbook.getCookbookByUser(cbIdentity.currentUser.userName);
+angular.module('app').controller('cbRecipeNewCtrl', function($scope, $location, cbAuth, cbIdentity, cbRecipeHelp, cbNotify) {
 
     $scope.addRecipe = function() {
         var newRecipeData = {
@@ -14,7 +13,7 @@ angular.module('app').controller('cbRecipeNewCtrl', function($scope, cbAuth, cbI
             ingredients: [$scope.ingredients0, $scope.ingredients1, $scope.ingredients2, $scope.ingredients3, $scope.ingredients4]
         };
 
-        cbRecipe.createRecipe(newRecipeData).then(function() {
+        cbRecipeHelp.createRecipe(newRecipeData).then(function() {
             cbNotify.notify('New Recipe created!');
             $location.path('/');
         }, function(reason) {

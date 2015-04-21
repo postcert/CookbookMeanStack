@@ -8,7 +8,7 @@ angular.module('app').controller('cbNavBarLoginCtrl', function($scope, $http, cb
                 cbNotify.notify('Username/Password combination is invalid');
             }
         });
-    }
+    };
 
     $scope.signout = function() {
         cbAuth.logoutUser().then(function() {

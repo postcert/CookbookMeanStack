@@ -52,7 +52,7 @@ exports.createDefaultUsers =  function() {
             });
             salt = encryption.createSalt();
             hash = encryption.hashPwd(salt, 'joe');
-            User.create({firstName: 'Joe', lastName: 'Ames', userName: 'joe', salt: salt, hashed_pwd: hash, cookbooks: ['best'],});
+            User.create({firstName: 'Joe', lastName: 'Ames', userName: 'joe', salt: salt, hashed_pwd: hash, cookbooks: ['best']});
         }
     })
 };
