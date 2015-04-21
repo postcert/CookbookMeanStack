@@ -10,3 +10,8 @@ exports.getCookbookById = function(req, res) {
         res.send(course);
     })
 };
+exports.getCookbookByUser = function(req, res) {
+    Cookbook.find({creator:req.params.user_id}).exec(function(err, cookbooks) {
+        res.send(cookbooks);
+    });
+};

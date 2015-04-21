@@ -14,7 +14,7 @@
             th Creator
             th Publish Date
          tbody
-            tr(ng-repeat="cookbook in cookbooks | filter: {creator : userName} | orderBy:sortOrder")
+            tr(ng-repeat="cookbook in cookbooks | orderBy:sortOrder")
                td
                   a(href="/cookbooks/{{cookbook._id}}") {{cookbook.title}}
                td {{cookbook.creator}}

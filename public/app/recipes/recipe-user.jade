@@ -15,7 +15,7 @@
             th Cookbook
             th Publish Date
          tbody
-            tr(ng-repeat="recipe in recipes | filter: {creator : userName} | orderBy:sortOrder")
+            tr(ng-repeat="recipe in recipes | orderBy:sortOrder")
                td
                   a(href="/recipes/{{recipe._id}}") {{recipe.title}}
                td {{recipe.creator}}

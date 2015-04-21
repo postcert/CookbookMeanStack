@@ -1,7 +1,10 @@
 angular.module('app').factory('cbCookbook', function($resource) {
-    var CookbookResource = $resource('/api/cookbooks/:_id', {_id: "@id"}, {
-        update: {method:'PUT', isArray:false}
-    });
-
-    return CookbookResource;
+    return {
+        cookbooks: $resource('/api/cookbooks/:_id', {_id: "@id"}, {
+            update: {method: 'GET', isArray: true}
+        }),
+        cookbooksuser: $resource('/api/cookbooks/:user_id', {user_id: "@user_id"}, {
+            update: {method: 'GET', isArray: true}
+        })
+    }
 });

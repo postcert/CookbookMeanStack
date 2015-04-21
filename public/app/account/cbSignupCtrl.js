@@ -9,7 +9,7 @@ angular.module('app').controller('cbSignupCtrl', function($scope, $location, cbU
         };
 
         cbAuth.createUser(newUserData).then(function() {
-            cbNotify.notify('User account created!');
+            cbNotify.notify('User Account created!');
             $location.path('/');
         }, function(reason) {
             cbNotify.error(reason);

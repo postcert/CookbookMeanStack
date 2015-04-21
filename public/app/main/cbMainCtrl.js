@@ -1,3 +1,3 @@
 angular.module('app').controller('cbMainCtrl', function ($scope, cbRecipe) {
-    $scope.recipes = cbRecipe.query();
+    $scope.recipes = cbRecipe.recipes.query();
 });

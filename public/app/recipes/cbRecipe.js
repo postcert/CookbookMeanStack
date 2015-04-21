@@ -1,7 +1,10 @@
 angular.module('app').factory('cbRecipe', function($resource) {
-    var RecipeResource = $resource('/api/recipes/:_id', {_id: "@id"}, {
-        update: {method:'PUT', isArray:false}
-    });
-
-    return RecipeResource;
+    return {
+        cookbooks: $resource('/api/recipes/:_id', {_id: "@id"}, {
+            update: {method: 'GET', isArray: true}
+        }),
+        cookbooksuser: $resource('/api/recipesuser/:user_id', {user_id: "@user_id"}, {
+            update: {method: 'GET', isArray: true}
+        })
+    }
 });
